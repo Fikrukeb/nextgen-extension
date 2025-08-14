@@ -21,7 +21,10 @@ async function bootstrap() {
 
   // Re-enable Nest's JSON body parser AFTER mounting BetterAuth
   expressApp.use(require('express').json());
-
+  app.enableCors({
+    origin: ['http://localhost:3000'],
+    credentials: true,
+  });
   app.setGlobalPrefix('api');
   await app.listen(8080);
 }
