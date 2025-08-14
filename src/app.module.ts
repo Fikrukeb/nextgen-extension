@@ -9,6 +9,7 @@ import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { DATABASE_CONNECTION } from './database/database-connection';
 import { UsersModule } from './users/users.module';
+import { BuildingModule } from './building/building.module';
 @Module({
   imports: [
      ConfigModule.forRoot(),
@@ -27,7 +28,8 @@ import { UsersModule } from './users/users.module';
       }),
       inject: [DATABASE_CONNECTION],
     }),
-    UsersModule, 
+    UsersModule,
+    BuildingModule, 
   ],
   controllers: [AppController],
   providers: [AppService],
