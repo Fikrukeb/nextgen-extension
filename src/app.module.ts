@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AuthModule } from '@mguay/nestjs-better-auth';  
+import { AuthModule } from '@mguay/nestjs-better-auth';
 import { DatabaseModule } from './database/database.module';
 import { ConfigModule } from '@nestjs/config';
 import { NodePgDatabase } from 'drizzle-orm/node-postgres';
@@ -10,9 +10,11 @@ import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { DATABASE_CONNECTION } from './database/database-connection';
 import { UsersModule } from './users/users.module';
 import { BuildingModule } from './building/building.module';
+import { admin, apiKey, organization } from 'better-auth/plugins';
+import { TenantModule } from './tenant/tenant.module';
 @Module({
   imports: [
-     ConfigModule.forRoot(),
+    ConfigModule.forRoot(),
     DatabaseModule,
     AuthModule.forRootAsync({
       useFactory: (database: NodePgDatabase) => ({
@@ -24,12 +26,14 @@ import { BuildingModule } from './building/building.module';
             enabled: true,
           },
           trustedOrigins: ['http://localhost:3000'],
+          plugins: [apiKey(), admin(), organization()],
         }),
       }),
       inject: [DATABASE_CONNECTION],
     }),
     UsersModule,
-    BuildingModule, 
+    BuildingModule,
+    TenantModule,
   ],
   controllers: [AppController],
   providers: [AppService],

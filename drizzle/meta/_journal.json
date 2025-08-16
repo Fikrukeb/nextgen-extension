@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1755096668825,
-      "tag": "0000_sour_paper_doll",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1755167107849,
-      "tag": "0001_smart_ultimates",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1755181128138,
-      "tag": "0002_long_captain_britain",
+      "when": 1755344463640,
+      "tag": "0000_striped_namor",
       "breakpoints": true
     }
   ]

@@ -1,6 +1,6 @@
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
-import { organization } from 'better-auth/plugins';
+import { admin, apiKey, organization } from 'better-auth/plugins';
 
 export const auth: any = betterAuth({
   database: drizzleAdapter(
@@ -9,5 +9,5 @@ export const auth: any = betterAuth({
       provider: 'pg',
     },
   ),
-  plugins: [organization()],
+   plugins: [apiKey(), admin(), organization()],
 });
