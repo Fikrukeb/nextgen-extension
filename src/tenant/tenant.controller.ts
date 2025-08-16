@@ -1,7 +1,9 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { TenantService } from './tenant.service';
+import { AuthGuard } from '@mguay/nestjs-better-auth';
 
 @Controller('tenant')
+@UseGuards(AuthGuard)
 export class TenantController {
   constructor(private readonly orgService: TenantService) {}
 
