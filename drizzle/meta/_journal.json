@@ -15,6 +15,13 @@
       "when": 1755167107849,
       "tag": "0001_smart_ultimates",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1755181128138,
+      "tag": "0002_long_captain_britain",
+      "breakpoints": true
     }
   ]
 }
