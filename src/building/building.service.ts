@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { DATABASE_CONNECTION } from 'src/database/database-connection';
-import * as schema from './schema';
+import * as schema from '../database/schema/core';
 import { NodePgDatabase } from 'drizzle-orm/node-postgres';
 
 @Injectable()
@@ -17,13 +17,14 @@ export class BuildingService {
 
   async createBuildings(data: { name: string; floors: number }) {
     return this.database.transaction(async (tx) => {
-      return await tx
-        .insert(schema.building)
-        .values({
-          floors: data.floors,
-          name: data.name,
-        })
-        .returning({ id: schema.building.id });
+      // return await tx
+      //   .insert(schema.building)
+      //   .values({
+      //     floors: data.floors,
+      //     name: data.name,
+      //     orgId
+      //   })
+      //   .returning({ id: schema.building.id });
     });
   }
 }
