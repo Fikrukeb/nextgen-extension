@@ -19,6 +19,11 @@ export class AppController {
     });
   }
 
+  @Get('import-from-file')
+  importAllFiles() {
+    return this.appService.importAllFromFile();
+  }
+
   @Get('get-recommendation')
   getRecommendation(@Query('lat') lat: number, @Query('lon') lon: number) {
     return this.appService.getRecommendation(lat, lon);
